@@ -2,10 +2,8 @@ require 'sinatra'
 require 'date'
 
 class Statistics < Sinatra::Base
-  
   enable :sessions
 
-  
   $transaction = []
 
   get '/' do
@@ -24,30 +22,30 @@ class Statistics < Sinatra::Base
   end
 
   def sum
-  	sum = 0
-  	array.each do |n|
-  	sum += n
-  	return sum
-  	end
+    sum = 0
+    array.each do |n|
+      sum += n
+      return sum
+    end
   end
 
   def avg
-  	var = $transaction.sum
-  	avg = (var /= $transaction.count)
-  	return avg
+    var = $transaction.sum
+    var /= $transaction.count
   end
 
-
+  def statistics
+    a = { 'sum:' => $transaction.sum,
+          'avg:' => avg,
+          'max:' => $transaction.max,
+          'min:' => $transaction.min,
+          'count:' => $transaction.count }
+    a.to_s
+end
 
   get '/statistics' do
-  	"sum: #{$transaction.sum},\n avg: #{avg},\n max: #{$transaction.max},\n min: #{$transaction.min},\n count: #{$transaction.count}"
+    statistics
   end
-
-
-
-
-
-
 
   run! if app_file == $PROGRAM_NAME
 end
