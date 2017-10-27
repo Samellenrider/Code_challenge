@@ -6,3 +6,8 @@ def enter_amount
   visit('/transaction')
   visit('/printtransaction')
 end
+
+def display_statistic
+  enter_amount
+  visit('/statistics')
+end

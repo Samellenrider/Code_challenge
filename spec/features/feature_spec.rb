@@ -18,7 +18,15 @@ feature Statistics do
   describe 'transaction is displayed' do
     it 'displays current transaction with timestamp' do
       enter_amount
-      expect(page).to have_content("\"amount\": 120, \"timestamp\": #{DateTime.now.strftime('%Q')}")
+      time = DateTime.now.strftime('%Q')
+      expect(page).to have_content("amount: 120, timestamp: #{time}")
+    end
+  end
+
+  describe 'statistic is displayed' do
+    it 'displays sum, avg, max, min, count' do
+      display_statistic
+      expect(page).to have_content('sum: 240, avg: 120, max: 120, min: 120, count: 2')
     end
   end
 end

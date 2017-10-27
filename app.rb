@@ -18,7 +18,7 @@ class Statistics < Sinatra::Base
   end
 
   get '/printtransaction' do
-    "\"amount\": #{$amount}, \"timestamp\": #{DateTime.now.strftime('%Q')}"
+    "amount: #{$amount}, timestamp: #{DateTime.now.strftime('%Q')}"
   end
 
   def sum
@@ -35,11 +35,11 @@ class Statistics < Sinatra::Base
   end
 
   def statistics
-    a = { 'sum:' => $transaction.sum,
-          'avg:' => avg,
-          'max:' => $transaction.max,
-          'min:' => $transaction.min,
-          'count:' => $transaction.count }
+    a = "sum: #{$transaction.sum},
+          avg: #{avg},
+          max: #{$transaction.max},
+          min: #{$transaction.min},
+          count: #{$transaction.count}"
     a.to_s
 end
 
