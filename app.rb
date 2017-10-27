@@ -8,9 +8,10 @@ class Statistics < Sinatra::Base
 
   get '/' do 
     "infrastructure test"
+    erb(:index)
   end
 
-  get '/transaction' do 
+  post '/transaction' do 
     session[:amount] = params[:amount]
     @transaction = []
     @transaction.push(@amount)
