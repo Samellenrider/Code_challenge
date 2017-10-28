@@ -1,6 +1,5 @@
 require 'spec_helper'
 require_relative '../../app'
-require_relative './web_helpers'
 
 feature Statistics do
   describe 'user enters amount' do
@@ -12,22 +11,6 @@ feature Statistics do
     it 'has submit button' do
       visit('/')
       expect(page).to have_button('Submit')
-    end
-  end
-
-  describe 'transaction is displayed' do
-    it 'displays current transaction with timestamp' do
-      enter_amount
-      time = DateTime.now.strftime('%Q')
-      expect(page).to have_content("amount: 120, timestamp: #{time}")
-    end
-  end
-
-  describe 'statistic is displayed' do
-    it 'displays sum, avg, max, min, count' do
-      display_statistic
-      content = 'sum: 240, avg: 120, max: 120, min: 120, count: 2'
-      expect(page).to have_content(content)
     end
   end
 end

@@ -3,11 +3,11 @@ source 'https://rubygems.org'
 ruby '2.4.0'
 
 gem 'chromedriver-helper'
+gem 'json'
 gem 'rake'
 gem 'selenium-webdriver'
 gem 'shotgun'
 gem 'sinatra'
-gem 'json'
 
 group :test do
   gem 'capybara'
