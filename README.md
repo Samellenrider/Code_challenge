@@ -23,16 +23,18 @@ After entering the amount, the transaction gets displayed in the terminal.
 
 The next step was to add the statistic feature to display the full statistic.
 
+After that I created a timer that would erase a transaction afte 60 seconds.
+
 
 ####Manual
 
 - clone this repository by entering "git clone https://github.com/Samellenrider/Code_challenge.git" in your terminal
 - open the file in. the terminal
 - use either "ruby app.rb", "rackup -p 5000" or "shotgun app.rb" to fire up your local server.
--in your browser, visit "localhost:portalid/". The portalid gets displayed in your terminal.
--enter an amount into the textfield and press submit.
--in your terminal you can see "201", what means that your transaction was succesfull, and your first transaction.
--visit "localhost:portalid/statistics".
--the statistic gets displayed in your terminal.
--after 60 seconds your first transaction will be erased.
--if you visit "localhost:portalid/statistics" now, "204" will be displayed. That means your transaction is older than 60 seconds.
+- in your browser, visit "localhost:portalid/". The portalid gets displayed in your terminal.
+- enter an amount into the textfield and press submit.
+- in your terminal you can see "201", what means that your transaction was succesfull, and your first transaction.
+- visit "localhost:portalid/statistics".
+- the statistic gets displayed in your terminal.
+- after 60 seconds your first transaction will be erased.
+- if you visit "localhost:portalid/statistics" now, "204" will be displayed. That means your transaction is older than 60 seconds.
