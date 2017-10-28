@@ -3,8 +3,8 @@ class Average
     sum = 0
     transactions.each do |n|
       sum += n
-      return sum
     end
+      return sum
   end
 
   def average_calc(transactions)
