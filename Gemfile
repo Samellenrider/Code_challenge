@@ -7,6 +7,7 @@ gem 'rake'
 gem 'selenium-webdriver'
 gem 'shotgun'
 gem 'sinatra'
+gem 'json'
 
 group :test do
   gem 'capybara'

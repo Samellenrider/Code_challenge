@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'date'
+require 'json'
 require_relative './lib/average'
 require_relative './lib/printer'
 
@@ -12,28 +13,23 @@ class Statistics < Sinatra::Base
 
   get '/' do
     'infrastructure test'
-    #print '1hello'
-    #$amount = gets.chomp
     erb(:index)
-    #redirect '/transaction'
   end
 
   post '/transaction' do
     $amount = params[:amount]
     $transaction.push($amount.to_f)
-    print "{\n amount: #{$amount},\n\n timestamp: #{DateTime.now.strftime('%Q')}\n}\n"
+    to_return = Hash["amount", $amount, "timestamp", DateTime.now.strftime('%Q')]
+    puts to_return.to_json
   end
 
   get '/statistics' do
-    print 'hello world'
     average = Average.new
     printer = Printer.new
     sum = average.summ($transaction)
     avg = average.average_calc($transaction)
-    puts '2hello'
-    puts sum 
-    puts '3hello'
-    puts avg
+    to_return = Hash["sum", sum, "avg", avg, "max", $transaction.max, "min", $transaction.min, "count", $transaction.count]
+    puts to_return.to_json
   end
 
   run! if app_file == $PROGRAM_NAME
