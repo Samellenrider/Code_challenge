@@ -2,7 +2,7 @@
 
 This is a code challenge I attempted in the context of a Job application. I had 2 days to complete it.
 
-####Task
+#### Task
 
 The task was to create a realtime statistic(60 sec) of all the transactions placed through the first api. 
 
@@ -13,7 +13,7 @@ The statistic should be displayed when the second api gets called.
 The statistic should include the summ, the average, the biggest, the smallest and the number of all transactions placed in the last 60 seconds.
 
 
-####Approach
+#### Approach
 
 First, I diagrammed the way the programm should work. Visualizing the way the programm would take and give information aswell as how it would interact with it, helped me a lot with the implementation.
 
@@ -26,7 +26,7 @@ The next step was to add the statistic feature to display the full statistic.
 After that I created a timer that would erase a transaction afte 60 seconds.
 
 
-####Manual
+#### Manual
 
 - clone this repository by entering "git clone https://github.com/Samellenrider/Code_challenge.git" in your terminal
 - open the file in. the terminal
