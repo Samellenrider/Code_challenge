@@ -21,15 +21,21 @@ class Statistics < Sinatra::Base
     $transaction.push($amount.to_f)
     to_return = Hash["amount", $amount, "timestamp", DateTime.now.strftime('%Q')]
     puts to_return.to_json
+    sleep 20
+    $transaction.shift
   end
 
   get '/statistics' do
     average = Average.new
-    printer = Printer.new
-    sum = average.summ($transaction)
-    avg = average.average_calc($transaction)
-    to_return = Hash["sum", sum, "avg", avg, "max", $transaction.max, "min", $transaction.min, "count", $transaction.count]
-    puts to_return.to_json
+    #printer = Printer.new
+    if $transaction.count != 0
+      sum = average.summ($transaction)
+      avg = average.average_calc($transaction)
+      to_return = Hash["sum", sum, "avg", avg, "max", $transaction.max, "min", $transaction.min, "count", $transaction.count]
+      puts to_return.to_json
+    else
+      puts "204"
+    end
   end
 
   run! if app_file == $PROGRAM_NAME
