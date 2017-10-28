@@ -26,7 +26,8 @@ feature Statistics do
   describe 'statistic is displayed' do
     it 'displays sum, avg, max, min, count' do
       display_statistic
-      expect(page).to have_content('sum: 240, avg: 120, max: 120, min: 120, count: 2')
+      content = 'sum: 240, avg: 120, max: 120, min: 120, count: 2'
+      expect(page).to have_content(content)
     end
   end
 end
