@@ -23,7 +23,7 @@ After entering the amount, the transaction gets displayed in the terminal.
 
 The next step was to add the statistic feature to display the full statistic.
 
-After that I created a timer that would erase a transaction afte 60 seconds.
+After that I created a timer that would erase a transaction after 60 seconds.
 
 
 #### Manual
