@@ -3,6 +3,7 @@ require 'date'
 require 'json'
 require_relative './lib/average'
 require_relative './lib/print_statistics'
+require_relative './lib/print_transaction'
 
 class Statistics < Sinatra::Base
 
@@ -16,16 +17,13 @@ class Statistics < Sinatra::Base
 
   post '/transactions' do
     $amount = params[:amount]
-    $transaction.push($amount.to_f)
-    to_return = Hash['amount', $amount, 'timestamp', DateTime.now.strftime('%Q')]
-    puts to_return.to_json
-    sleep 60
-    $transaction.shift
+    printer = Transaction.new
+    puts printer.print_transac.to_json
   end
 
   get '/statistics' do
     printer = Print_statistics.new
-    puts printer.print.to_json
+    puts printer.print_stat.to_json
   end
 
   run! if app_file == $PROGRAM_NAME

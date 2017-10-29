@@ -6,7 +6,7 @@ class Print_statistics
   	@average = Average.new
   end
 
-  def print
+  def print_stat
   	if $transaction.count != 0
       sum = @average.summ($transaction)
       avg = @average.average_calc($transaction)
