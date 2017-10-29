@@ -1,14 +1,13 @@
 require_relative './average'
 
-class Print_statistics
-
+class PrintStatistics
   def initialize
-  	@average = Average.new
+    @average = Average.new
   end
 
   def print_stat
-  	if $transaction.count != 0
-      sum = @average.summ($transaction)
+    if $transaction.count != 0
+      sum = @average.transac_sum($transaction)
       avg = @average.average_calc($transaction)
       to_return = Hash['sum', sum, 'avg', avg, 'max', $transaction.max, 'min', $transaction.min, 'count', $transaction.count]
       puts '201'
@@ -18,5 +17,4 @@ class Print_statistics
       puts '204'
     end
   end
-
 end

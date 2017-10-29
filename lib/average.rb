@@ -1,19 +1,16 @@
+
 class Average
-  def summ(transactions)
+  def transac_sum(transactions)
     sum = 0
     transactions.each do |n|
       sum += n
     end
-      return sum
+    sum
   end
 
   def average_calc(transactions)
-    transaction_sum = summ(transactions)
+    transaction_sum = transac_sum(transactions)
     average = transaction_sum / transactions.count
     average
   end
 end
-
-# def summ(array)
-#   array.inject(0){|sum,x| sum + x }
-#   end

@@ -6,7 +6,6 @@ require_relative './lib/print_statistics'
 require_relative './lib/print_transaction'
 
 class Statistics < Sinatra::Base
-
   enable :sessions
 
   $transaction = []
@@ -22,7 +21,7 @@ class Statistics < Sinatra::Base
   end
 
   get '/statistics' do
-    printer = Print_statistics.new
+    printer = PrintStatistics.new
     puts printer.print_stat.to_json
   end
 

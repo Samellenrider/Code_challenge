@@ -2,17 +2,16 @@ ENV['RACK_ENV'] = 'test'
 require 'capybara'
 require 'sinatra'
 require 'rspec'
-
-require 'capybara/rspec'
-require 'simplecov'
-require 'simplecov-console'
+require 'timecop'
 require_relative '../app.rb'
 
-Capybara.app = Statistics
+require 'capybara/rspec'
+#require 'timecop/rspec'
 
-SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new(
-  SimpleCov::Formatter::Console,
-  # Want a nice code coverage website? Uncomment this next line!
-  # SimpleCov::Formatter::HTMLFormatter
-)
-SimpleCov.start
+# RSpec.configure do |config|
+#   config.around(:example) do |example|
+#     Timecop::Rspec.time_machine.run(example)
+#   end
+# end
+
+Capybara.app = Statistics
